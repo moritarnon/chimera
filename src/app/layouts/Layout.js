@@ -119,6 +119,7 @@ const Layout = withStyles(styles)((props) => {
                 <main className={clsx(classes.content, open && classes.contentShift)}>
                     <AppContent/>
                 </main>
-            </div>);
+            </div>
+        );
 });
 export default Layout;

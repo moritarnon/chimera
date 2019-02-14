@@ -2,8 +2,8 @@ import React from 'reactn';
 import {MuiThemeProvider} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import {BrowserRouter} from 'react-router-dom'
-import Layout from "./layout/Layout";
-import pictonBlueAtomicTangerineDonkey from "./themes/pictonBlueAtomicTangerineDonkey";
+import Layout2 from "./layouts/Layout2";
+import empty from "./themes/empty";
 
 
 // Set an initial global state directly:
@@ -14,12 +14,15 @@ import pictonBlueAtomicTangerineDonkey from "./themes/pictonBlueAtomicTangerineD
 
 function App() {
 
+    //themes:
+    //theme={pictonBlueAtomicTangerineDonkey}
+
     return (
-        <MuiThemeProvider theme={pictonBlueAtomicTangerineDonkey}>
+        <MuiThemeProvider theme={empty}>
             {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
             <CssBaseline/>
             <BrowserRouter>
-                <Layout />
+                <Layout2 />
             </BrowserRouter>
         </MuiThemeProvider>
     );
