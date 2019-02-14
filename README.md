@@ -1,2 +1,0 @@
-# chimera
-Created with CodeSandbox
