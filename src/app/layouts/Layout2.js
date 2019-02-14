@@ -5,7 +5,7 @@ import AppMenu from "../appMenu/AppMenu";
 import AppContent from "../appContent/AppContent";
 import { Drawer, Paper, IconButton } from "@material-ui/core";
 import { unstable_useMediaQuery as useMediaQuery } from "@material-ui/core/useMediaQuery";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import MenuIcon from "@material-ui/icons/Menu";
 import clsx from "clsx";
 
 const styles = theme => ({
@@ -62,7 +62,7 @@ const Layout2 = withStyles(styles, { withTheme: true })(props => {
       {/*TODO on Button only*/}
       {small && !open && (
         <IconButton className={classes.openMenuButton} onClick={onOpen}>
-          {<ExpandMoreIcon color="secondary" />}
+          {<MenuIcon color="secondary" />}
         </IconButton>
       )}
       {small ? (
