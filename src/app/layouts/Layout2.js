@@ -3,7 +3,7 @@ import {withStyles} from "@material-ui/core/styles";
 import {menuWidth} from "../themes/themeVariables";
 import AppMenu from "../appMenu/AppMenu";
 import AppContent from "../appContent/AppContent";
-import {Drawer, Paper, SwipeableDrawer} from "@material-ui/core";
+import {Drawer, Paper} from "@material-ui/core";
 import {unstable_useMediaQuery as useMediaQuery} from '@material-ui/core/useMediaQuery';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
@@ -22,7 +22,7 @@ const styles = theme => ({
     },
     openMenuButton: {
         position: 'fixed',
-        width: '100%',
+        height: '100%',
         textAlign: 'center'
     },
     drawerPaper: {
@@ -52,23 +52,25 @@ const Layout2 = withStyles(styles, { withTheme: true })((props) => {
 
     return (
         <div className={classes.root}>
+            {/*TODO on Button only*/}
             {small && !open && <div className={classes.openMenuButton} onClick={onOpen}>
                 {<ExpandMoreIcon color="secondary" />}
             </div>}
             {small
-                ? <SwipeableDrawer anchor="top"
-                                   open={open}
-                                   onClose={onClose}
-                                   onOpen={onOpen}>
+                ? <Drawer anchor="top"
+                          variant="temporary"
+                          open={open}
+                          onClose={onClose}
+                          onOpen={onOpen}>
                     <AppMenu/>
-                </SwipeableDrawer>
+                </Drawer>
                 : <Drawer open={true}
                         className={classes.drawer}
                         classes={{
                             paper: classes.drawerPaper
                         }}
                         variant="persistent">
-                    <AppMenu/>
+                    <AppMenu dense />
                 </Drawer>
             }
             <Paper className={classes.content}>
