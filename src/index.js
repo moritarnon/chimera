@@ -4,7 +4,6 @@ import App from './app/App';
 import * as serviceWorker from './serviceWorker';
 
 import './index.css';
-import '@fortawesome/fontawesome-free/css/all.css';
 
 ReactDOM.render((
         <App />
