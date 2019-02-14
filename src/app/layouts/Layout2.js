@@ -41,7 +41,7 @@ const Layout2 = withStyles(styles, { withTheme: true })((props) => {
     const {classes} = props;
 
     const small = useMediaQuery(props.theme.breakpoints.down('xs'));
-    const [open, setOpen] = useState(!small);
+    const [open, setOpen] = useState(false);
 
     const onOpen = () => {
         setOpen(true);
@@ -52,7 +52,7 @@ const Layout2 = withStyles(styles, { withTheme: true })((props) => {
 
     return (
         <div className={classes.root}>
-            {small && !open && <div className={classes.openMenuButton}>
+            {small && !open && <div className={classes.openMenuButton} onClick={onOpen}>
                 {<ExpandMoreIcon color="secondary" />}
             </div>}
             {small
@@ -62,7 +62,7 @@ const Layout2 = withStyles(styles, { withTheme: true })((props) => {
                                    onOpen={onOpen}>
                     <AppMenu/>
                 </SwipeableDrawer>
-                : <Drawer open={open}
+                : <Drawer open={true}
                         className={classes.drawer}
                         classes={{
                             paper: classes.drawerPaper
