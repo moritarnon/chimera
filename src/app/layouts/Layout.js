@@ -1,6 +1,6 @@
 import React, {useState} from 'reactn';
 import {withStyles} from "@material-ui/core/styles/index";
-import Drawer from "@material-ui/core/es/Drawer/Drawer";
+import Drawer from "@material-ui/core/Drawer";
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import AppMenu from "../appMenu/AppMenu";
