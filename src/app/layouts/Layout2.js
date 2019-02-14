@@ -3,14 +3,19 @@ import { withStyles } from "@material-ui/core/styles";
 import { menuWidth, menuMaxWidth } from "../themes/themeVariables";
 import AppMenu from "../appMenu/AppMenu";
 import AppContent from "../appContent/AppContent";
-import { Drawer, Paper } from "@material-ui/core";
+import { Drawer, Paper, IconButton } from "@material-ui/core";
 import { unstable_useMediaQuery as useMediaQuery } from "@material-ui/core/useMediaQuery";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import clsx from "clsx";
 
 const styles = theme => ({
   root: {
     display: "flex",
     height: "100%"
+  },
+  mobileDrawer: {
+    width: menuWidth,
+    maxWidth: menuMaxWidth
   },
   drawer: {
     width: menuWidth,
@@ -23,8 +28,7 @@ const styles = theme => ({
   },
   openMenuButton: {
     position: "fixed",
-    height: "100%",
-    textAlign: "center"
+    margin: theme.spacing.unit
   },
   drawerPaper: {
     width: menuWidth
@@ -34,6 +38,9 @@ const styles = theme => ({
     padding: theme.spacing.unit,
     paddingTop: theme.spacing.unit * 2,
     flexGrow: 1
+  },
+  contentSmall: {
+    paddingTop: theme.spacing.unit * 7
   }
 });
 
@@ -54,19 +61,23 @@ const Layout2 = withStyles(styles, { withTheme: true })(props => {
     <div className={classes.root}>
       {/*TODO on Button only*/}
       {small && !open && (
-        <div className={classes.openMenuButton} onClick={onOpen}>
+        <IconButton className={classes.openMenuButton} onClick={onOpen}>
           {<ExpandMoreIcon color="secondary" />}
-        </div>
+        </IconButton>
       )}
       {small ? (
         <Drawer
-          anchor="top"
+          className={classes.mobileDrawer}
+          classes={{
+            paper: classes.mobileDrawer
+          }}
+          anchor="left"
           variant="temporary"
           open={open}
           onClose={onClose}
           onOpen={onOpen}
         >
-          <AppMenu />
+          <AppMenu dense />
         </Drawer>
       ) : (
         <Drawer
@@ -80,7 +91,7 @@ const Layout2 = withStyles(styles, { withTheme: true })(props => {
           <AppMenu dense />
         </Drawer>
       )}
-      <Paper className={classes.content}>
+      <Paper className={clsx(classes.content, small && classes.contentSmall)}>
         <AppContent />
       </Paper>
     </div>
