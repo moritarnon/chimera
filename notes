@@ -1,0 +1,44 @@
+https://fontawesome.com/icons
+
+https://material-ui.com/
+
+
+//color themes
+https://material.io/tools/color/#!/?view.left=1&view.right=0&primary.color=4a9fe8&secondary.color=ff9a6f
+https://material.io/tools/color/#!/?view.left=0&view.right=1&secondary.color=e59929&primary.color=FAFAFA
+
+TODO:
+
+	
+	deploy on opennode:
+		make start:dev command for current npm start
+		make start command for running simple express with serving files from build directory
+		create open node ignore for node_modules
+
+    deploy on firebase (might be cheaper and moer convenient)
+
+
+
+ DEPLOY:
+
+ prepare:
+npm install -g firebase-tools
+
+
+ run:
+ firebase login
+
+firebase deploy
+
+ Project Console: https://console.firebase.google.com/project/chimera-a52d5/overview
+ Hosting URL: https://chimera-a52d5.firebaseapp.com
+
+
+ https://codesandbox.io/s/q3yl1jjl5w
+https://codesandbox.io/s/4o3n59pnx
+
+//current
+https://codesandbox.io/s/pkrzxv4op0
+
+
+		
