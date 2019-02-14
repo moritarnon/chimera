@@ -40,7 +40,8 @@ const styles = theme => ({
     flexGrow: 1
   },
   contentSmall: {
-    paddingTop: theme.spacing.unit * 7
+    paddingTop: theme.spacing.unit * 7,
+    paddingLeft: theme.spacing.unit * 3
   }
 });
 
