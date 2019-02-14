@@ -80,7 +80,8 @@ const MenuDropdown = (props, ) => {
             <li className="MenuDropdown-toggle" key={0}>
                 <div className="toggleDropdown" onClick={onClick}>
                     <span>{props.title}</span>
-                    <i className={open ? "fa fa-chevron-up" : "fa fa-chevron-down"} />
+                    &lt;openclose&gt;
+                    {/*<i className={open ? "fa fa-chevron-up" : "fa fa-chevron-down"} />*/}
                 </div>
             </li>,
             <div className="MenuDropdown-content" key={1}
