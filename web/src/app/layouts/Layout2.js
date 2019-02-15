@@ -64,8 +64,8 @@ const Layout2 = withStyles(styles)(props => {
                     {<MenuIcon color="secondary"/>}
                 </IconButton>
 
-                {/*TODO persistent in modal instead of temporary*/}
                 <Drawer
+                    ModalProps={{ keepMounted: true }}
                     className={classes.mobileDrawer}
                     classes={{
                         paper: classes.mobileDrawer
