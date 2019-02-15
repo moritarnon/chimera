@@ -1,44 +1,62 @@
+*******************************************
+LIBRARIES
+
 https://fontawesome.com/icons
 
 https://material-ui.com/
 
+*******************************************
+DEV. TOOLS LINKS
 
 //color themes
 https://material.io/tools/color/#!/?view.left=1&view.right=0&primary.color=4a9fe8&secondary.color=ff9a6f
 https://material.io/tools/color/#!/?view.left=0&view.right=1&secondary.color=e59929&primary.color=FAFAFA
 
-TODO:
-
-	
-	deploy on opennode:
-		make start:dev command for current npm start
-		make start command for running simple express with serving files from build directory
-		create open node ignore for node_modules
-
-    deploy on firebase (might be cheaper and moer convenient)
-
-
-
- DEPLOY:
-
- prepare:
-npm install -g firebase-tools
-
-
- run:
- firebase login
-
-firebase deploy
-
- Project Console: https://console.firebase.google.com/project/chimera-a52d5/overview
- Hosting URL: https://chimera-a52d5.firebaseapp.com
-
-
-codesandbox:
+*******************************************
+SOURCE CODE LINKS
 
 https://codesandbox.io/s/github/moritarnon/chimera/tree/develop/
 
 https://codesandbox.io/s/ymq42jrl89
+https://codesandbox.io/s/wozvvm38m5
+https://codesandbox.io/s/vv86jrjvzl
+
+*******************************************
+DEPLOY & DELPLOY-TOOLS INFO
+
+FIREBASE
+    INFO:
+      prepare:
+        npm install -g firebase-tools
+      run:
+        firebase login
+        firebase deploy
+
+    LINKS:
+        Project Console: https://console.firebase.google.com/project/chimera-a52d5/overview
+        Hosting URL: https://chimera-a52d5.firebaseapp.com
+
+OPPENNODE
+    run:
+        openode deploy
+
+    LINKS:
+        http://chimera.openode.io/
+
+
+*******************************************
+TODO TASKS
+
+    repair menu:
+        remember selection!
+        try bootsrap instead of materialui
+
+    simple in-memory/file database
+
+
+
+
+
 
 
 		
