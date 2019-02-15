@@ -3,11 +3,9 @@ import PropTypes from "prop-types";
 import Divider from "@material-ui/core/es/Divider/Divider";
 import {Menu, MenuDropdown, MenuLink} from "./Menu";
 
-//TODO dense propagate automaticaly
-
-export const AppMenu = props => {
+export const AppMenu = ({dense = false}) => {
     return (
-        <Menu dense={props.dense}>
+        <Menu dense={dense}>
             <MenuLink to="/" primary="Home"  />
 
             <Divider />
