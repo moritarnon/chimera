@@ -1,12 +1,11 @@
 import React, {useState} from "reactn";
 import {withStyles} from "@material-ui/core/styles";
-import {menuWidth, menuMaxWidth} from "../themes/themeVariables";
+import {menuMaxWidth, menuWidth} from "../themes/themeVariables";
 import AppMenu from "../appMenu/AppMenu";
 import AppContent from "../appContent/AppContent";
-import {Drawer, Paper, IconButton} from "@material-ui/core";
-import {unstable_useMediaQuery as useMediaQuery} from "@material-ui/core/useMediaQuery";
+import {Drawer, IconButton, Paper} from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
-import clsx from "clsx";
+import Hidden from "@material-ui/core/Hidden";
 
 const styles = theme => ({
     root: {
@@ -37,18 +36,17 @@ const styles = theme => ({
         height: "100%",
         padding: theme.spacing.unit,
         paddingTop: theme.spacing.unit * 2,
-        flexGrow: 1
-    },
-    contentSmall: {
-        paddingTop: theme.spacing.unit * 7,
-        paddingLeft: theme.spacing.unit * 3
+        flexGrow: 1,
+        [theme.breakpoints.down('xs')]: {
+            paddingTop: theme.spacing.unit * 7,
+            paddingLeft: theme.spacing.unit * 3
+        }
     }
 });
 
-const Layout2 = withStyles(styles, {withTheme: true})(props => {
+const Layout2 = withStyles(styles)(props => {
     const {classes} = props;
 
-    const small = useMediaQuery(props.theme.breakpoints.down("xs"));
     const [open, setOpen] = useState(false);
 
     const onOpen = () => {
@@ -58,18 +56,15 @@ const Layout2 = withStyles(styles, {withTheme: true})(props => {
         setOpen(false);
     };
 
-    //TODO use
-    // <Hidden smUp implementation="css">
-
     return (
         <div className={classes.root}>
-            {/*TODO on Button only*/}
-            {small && !open && (
+
+            <Hidden smUp implementation="css">
                 <IconButton className={classes.openMenuButton} onClick={onOpen}>
                     {<MenuIcon color="secondary"/>}
                 </IconButton>
-            )}
-            {small ? (
+
+                {/*TODO persistent in modal instead of temporary*/}
                 <Drawer
                     className={classes.mobileDrawer}
                     classes={{
@@ -78,24 +73,24 @@ const Layout2 = withStyles(styles, {withTheme: true})(props => {
                     anchor="left"
                     variant="temporary"
                     open={open}
-                    onClose={onClose}
-                    onOpen={onOpen}
-                >
+                    onClose={onClose}>
                     <AppMenu dense/>
                 </Drawer>
-            ) : (
+            </Hidden>
+
+            <Hidden only={'xs'} implementation="css">>
                 <Drawer
                     open={true}
                     className={classes.drawer}
                     classes={{
                         paper: classes.drawerPaper
                     }}
-                    variant="persistent"
-                >
+                    variant="persistent">
                     <AppMenu dense/>
                 </Drawer>
-            )}
-            <Paper className={clsx(classes.content, small && classes.contentSmall)}>
+            </Hidden>
+
+            <Paper className={classes.content}>
                 <AppContent/>
             </Paper>
         </div>

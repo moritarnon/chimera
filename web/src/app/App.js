@@ -5,12 +5,13 @@ import {BrowserRouter} from 'react-router-dom'
 import Layout2 from "./layouts/Layout2";
 import empty from "./themes/empty";
 
-
 // Set an initial global state directly:
 //setGlobal({
 //    open: true
 //});
 
+
+//export const appHistory = createBrowserHistory();
 
 function App() {
 
