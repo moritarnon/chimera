@@ -45,7 +45,7 @@ Menu.propTypes = {
 
 export const MenuLink = withRouter(withStyles(styles)(props => {
 
-    const {classes, primary, secondary, children, to, history} = props;
+    const {classes, primary, secondary, children, to, history, location} = props;
 
     const menuContext = React.useContext(MenuContext);
 
@@ -56,6 +56,7 @@ export const MenuLink = withRouter(withStyles(styles)(props => {
     return (
         <ListItem
             button
+            selected={to === location.pathname}
             onClick={onClick}
             dense={menuContext.dense}
             className={
