@@ -37,11 +37,12 @@ const styles = theme => ({
     },
     contentPaper: {
         flexGrow: 1, //takes up remaining height
-        padding: theme.spacing.unit,
-        paddingTop: theme.spacing.unit * 2,
+        padding: theme.spacing.unit * 2,
+        [theme.breakpoints.up('sm')]: {
+            width: '90%',
+            margin: 'auto',
+        },
         [theme.breakpoints.down('xs')]: {
-            paddingLeft: theme.spacing.unit * 3,
-            paddingRight: theme.spacing.unit * 3
         }
     },
     toolbar: theme.mixins.toolbar
@@ -70,7 +71,7 @@ const Layout3 = withStyles(styles)(props => {
                             {<MenuIcon color="secondary"/>}
                         </IconButton>
                     </Hidden>
-                    <Typography variant="h6" color="inherit">
+                    <Typography variant="h6">
                         Chimera
                     </Typography>
                 </Toolbar>

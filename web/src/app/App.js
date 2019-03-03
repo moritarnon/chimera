@@ -3,7 +3,7 @@ import {MuiThemeProvider} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import {BrowserRouter} from 'react-router-dom'
 import Layout3 from "./layouts/Layout3";
-import empty from "./themes/empty";
+import dark from "./themes/dark";
 
 // Set an initial global state directly:
 //setGlobal({
@@ -19,7 +19,7 @@ function App() {
     //theme={pictonBlueAtomicTangerineDonkey}
 
     return (
-        <MuiThemeProvider theme={empty}>
+        <MuiThemeProvider theme={dark}>
             {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
             <CssBaseline/>
             <BrowserRouter>
