@@ -20,16 +20,21 @@ const styles = theme => ({
         height: '100%'
     },
     appBar: {
-        zIndex: theme.zIndex.drawer + 1,
+        zIndex: theme.zIndex.drawer + 1
     },
     toolbarMain: {
         display: 'flex',
-        flexGrow: 1,  //takes up remaining width
+        //flexGrow: 1,  //takes up remaining width
+        width: menuWidth,
         alignSelf: 'stretch',
         alignItems: 'center',
         cursor: 'pointer',
-        [theme.breakpoints.up('sm')]: {
+        marginLeft: {
+
+        },
+        [theme.breakpoints.up('sm')]: { //not mobile
             justifyContent: 'center',
+            ...theme.mixins.gutters()
         }
     },
     drawer: {
