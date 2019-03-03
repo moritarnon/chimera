@@ -8,6 +8,7 @@ import Collapse from "@material-ui/core/Collapse";
 import PropTypes from "prop-types";
 import {withStyles} from "@material-ui/core/styles/index";
 import {withRouter} from "react-router-dom";
+import clsx from "clsx";
 
 const styles = theme => ({
     menuItem: {},
@@ -31,7 +32,7 @@ const MenuContext = React.createContext({dense: false, level: 0});
 export const Menu = props => {
     return (
         <MenuContext.Provider value={{dense: props.dense, level: 0}}>
-            <List component="nav" dense={props.dense} key={0}>
+            <List disablePadding component="nav" dense={props.dense} key={0}>
                 {props.children}
             </List>
         </MenuContext.Provider>
@@ -41,9 +42,8 @@ Menu.propTypes = {
     dense: PropTypes.bool
 };
 
-export const MenuLink = withRouter(withStyles(styles)(props => {
-
-    const {classes, primary, secondary, children, to, history, location} = props;
+export const MenuLink = withRouter(withStyles(styles)(
+    ({classes, primary, secondary, children, to, history, location, additionalClass}) => {
 
     const menuContext = React.useContext(MenuContext);
 
@@ -58,7 +58,7 @@ export const MenuLink = withRouter(withStyles(styles)(props => {
             onClick={onClick}
             dense={menuContext.dense}
             className={
-                classes["nested" + menuContext.level.toString()]
+                clsx(additionalClass, classes["nested" + menuContext.level.toString()])
             }>
             {children || <ListItemText primary={primary} secondary={secondary}/>}
         </ListItem>
@@ -67,7 +67,8 @@ export const MenuLink = withRouter(withStyles(styles)(props => {
 MenuLink.propTypes = {
     to: PropTypes.string,
     primary: PropTypes.string,
-    secondary: PropTypes.string
+    secondary: PropTypes.string,
+    additionalClass: PropTypes.string
 };
 
 export const MenuDropdown = withStyles(styles)(props => {

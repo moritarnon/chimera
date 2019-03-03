@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 import Divider from "@material-ui/core/es/Divider/Divider";
 import {Menu, MenuDropdown, MenuLink} from "./Menu";
 
-export const AppMenu = ({dense = false}) => {
+export const AppMenu = ({dense = false, firstItemClass}) => {
     return (
         <Menu dense={dense}>
-            <MenuLink to="/" primary="Home"  />
+            <MenuLink to="/" primary="Home" additionalClass={firstItemClass} />
 
             <Divider />
 
@@ -27,7 +27,8 @@ export const AppMenu = ({dense = false}) => {
     );
 };
 AppMenu.propTypes = {
-    dense: PropTypes.bool
+    dense: PropTypes.bool,
+    firstItemClass: PropTypes.string
 };
 export default AppMenu;
 

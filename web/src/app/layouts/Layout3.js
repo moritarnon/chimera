@@ -20,7 +20,11 @@ const styles = theme => ({
         height: '100%'
     },
     appBar: {
-        zIndex: theme.zIndex.drawer + 1,
+//        zIndex: theme.zIndex.drawer + 1,
+        [theme.breakpoints.up('sm')]: { //only mobile
+            width: `calc(100% - ${menuWidth}px)`,
+            marginLeft: menuWidth,
+        }
     },
     toolbarMain: {
         display: 'flex',
@@ -60,7 +64,7 @@ const styles = theme => ({
     toolbar: theme.mixins.toolbar
 });
 
-const appMenu = <AppMenu dense />;
+
 
 const Layout3 = withRouter(withStyles(styles, {withTheme: true})(props => {
     const {classes, theme, history} = props;
@@ -79,24 +83,26 @@ const Layout3 = withRouter(withStyles(styles, {withTheme: true})(props => {
         history.push("/");
     }
 
+    const appMenu = <AppMenu dense firstItemClass={classes.toolbar} />;
+
     return (
         <Fragment>
-            <AppBar position="fixed" className={classes.appBar} color="default">
-                <Toolbar disableGutters>
-                    <Hidden smUp implementation="css">
-                        <IconButton className={classes.openMenuButton} onClick={onOpen}>
-                            {<MenuIcon color="secondary"/>}
-                        </IconButton>
-                    </Hidden>
-                    <div className={classes.toolbarMain} onClick={navigateHome}>
-                        <Typography variant="h6" align={isMobile ? 'inherit' : 'center'}>
-                            Chimera
-                        </Typography>
-                    </div>
-                </Toolbar>
-            </AppBar>
-
             <div className={classes.root}>
+
+                <AppBar position="fixed" className={classes.appBar} color="default">
+                    <Toolbar disableGutters>
+                        <Hidden smUp implementation="css">
+                            <IconButton className={classes.openMenuButton} onClick={onOpen}>
+                                {<MenuIcon color="secondary"/>}
+                            </IconButton>
+                        </Hidden>
+                        <div className={classes.toolbarMain} onClick={navigateHome}>
+                            <Typography variant="h6" align={isMobile ? 'inherit' : 'center'}>
+                                Chimera
+                            </Typography>
+                        </div>
+                    </Toolbar>
+                </AppBar>
 
                 <Hidden only={'xs'} implementation="css">
                     <Drawer
@@ -106,7 +112,6 @@ const Layout3 = withRouter(withStyles(styles, {withTheme: true})(props => {
                             paper: classes.drawerPaper
                         }}
                         variant="persistent">
-                        <div className={classes.toolbar} />
                         {appMenu}
                     </Drawer>
                 </Hidden>
