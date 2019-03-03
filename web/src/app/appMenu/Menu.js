@@ -28,7 +28,6 @@ const styles = theme => ({
 
 const MenuContext = React.createContext({dense: false, level: 0});
 
-//TODO remember selected item
 export const Menu = props => {
     return (
         <MenuContext.Provider value={{dense: props.dense, level: 0}}>
@@ -41,7 +40,6 @@ export const Menu = props => {
 Menu.propTypes = {
     dense: PropTypes.bool
 };
-
 
 export const MenuLink = withRouter(withStyles(styles)(props => {
 
@@ -62,7 +60,7 @@ export const MenuLink = withRouter(withStyles(styles)(props => {
             className={
                 classes["nested" + menuContext.level.toString()]
             }>
-            {(children && children) || <ListItemText primary={primary} secondary={secondary}/>}
+            {children || <ListItemText primary={primary} secondary={secondary}/>}
         </ListItem>
     );
 }));

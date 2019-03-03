@@ -2,7 +2,7 @@ import React from 'reactn';
 import {MuiThemeProvider} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import {BrowserRouter} from 'react-router-dom'
-import Layout2 from "./layouts/Layout2";
+import Layout3 from "./layouts/Layout3";
 import empty from "./themes/empty";
 
 // Set an initial global state directly:
@@ -23,7 +23,7 @@ function App() {
             {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
             <CssBaseline/>
             <BrowserRouter>
-                <Layout2 />
+                <Layout3 />
             </BrowserRouter>
         </MuiThemeProvider>
     );

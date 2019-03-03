@@ -72,50 +72,96 @@ class NestedList extends React.Component {
                     {this.state.open ? <ExpandLess /> : <ExpandMore />}
                 </ListItem>
                 <Collapse in={this.state.open} timeout="auto" unmountOnExit>
-                    <List component="div" disablePadding>
-                        <ListItem button className={classes.nested}>
-                            <ListItemIcon>
-                                <StarBorder />
-                            </ListItemIcon>
-                            <ListItemText inset primary="Starred" />
-                        </ListItem>
-                        <ListItem button className={classes.nested}>
-                            <ListItemIcon>
-                                <StarBorder />
-                            </ListItemIcon>
-                            <ListItemText inset primary="Starred" />
-                        </ListItem>
-                        <ListItem button onClick={this.handleClick2} className={classes.nested}>
-                            <ListItemIcon>
-                                <InboxIcon />
-                            </ListItemIcon>
-                            <ListItemText inset primary="Inbox2" />
-                            {this.state.open2 ? <ExpandLess /> : <ExpandMore />}
-                        </ListItem>
-                        <Collapse  in={this.state.open2} timeout="auto" unmountOnExit >
-                            <List component="div" disablePadding>
-                                <ListItem button className={classes.nested2}>
-                                    <ListItemIcon>
-                                        <StarBorder />
-                                    </ListItemIcon>
-                                    <ListItemText inset primary="Starred" />
-                                </ListItem>
-                                <ListItem button className={classes.nested2}>
-                                    <ListItemIcon>
-                                        <StarBorder />
-                                    </ListItemIcon>
-                                    <ListItemText inset primary="Starred" />
-                                </ListItem>
-                            </List>
-                        </Collapse>
-                        <ListItem button className={classes.nested}>
-                            <ListItemIcon>
-                                <StarBorder />
-                            </ListItemIcon>
-                            <ListItemText inset primary="Starred" />
-                        </ListItem>
-                    </List>
-                </Collapse>
+                <List component="div" disablePadding>
+                    <ListItem button className={classes.nested}>
+                        <ListItemIcon>
+                            <StarBorder />
+                        </ListItemIcon>
+                        <ListItemText inset primary="Starred" />
+                    </ListItem>
+                    <ListItem button className={classes.nested}>
+                        <ListItemIcon>
+                            <StarBorder />
+                        </ListItemIcon>
+                        <ListItemText inset primary="Starred" />
+                    </ListItem>
+                    <ListItem button onClick={this.handleClick2} className={classes.nested}>
+                        <ListItemIcon>
+                            <InboxIcon />
+                        </ListItemIcon>
+                        <ListItemText inset primary="Inbox2" />
+                        {this.state.open2 ? <ExpandLess /> : <ExpandMore />}
+                    </ListItem>
+                    <Collapse  in={this.state.open2} timeout="auto" unmountOnExit >
+                        <List component="div" disablePadding>
+                            <ListItem button className={classes.nested2}>
+                                <ListItemIcon>
+                                    <StarBorder />
+                                </ListItemIcon>
+                                <ListItemText inset primary="Starred" />
+                            </ListItem>
+                            <ListItem button className={classes.nested2}>
+                                <ListItemIcon>
+                                    <StarBorder />
+                                </ListItemIcon>
+                                <ListItemText inset primary="Starred" />
+                            </ListItem>
+                            <ListItem button onClick={this.handleClick2} className={classes.nested}>
+                                <ListItemIcon>
+                                    <InboxIcon />
+                                </ListItemIcon>
+                                <ListItemText inset primary="Inbox2" />
+                                {this.state.open2 ? <ExpandLess /> : <ExpandMore />}
+                            </ListItem>
+                            <Collapse  in={this.state.open2} timeout="auto" unmountOnExit >
+                                <List component="div" disablePadding>
+                                    <ListItem button className={classes.nested2}>
+                                        <ListItemIcon>
+                                            <StarBorder />
+                                        </ListItemIcon>
+                                        <ListItemText inset primary="Starred" />
+                                    </ListItem>
+                                    <ListItem button className={classes.nested2}>
+                                        <ListItemIcon>
+                                            <StarBorder />
+                                        </ListItemIcon>
+                                        <ListItemText inset primary="Starred" />
+                                    </ListItem>
+                                    <ListItem button onClick={this.handleClick2} className={classes.nested}>
+                                        <ListItemIcon>
+                                            <InboxIcon />
+                                        </ListItemIcon>
+                                        <ListItemText inset primary="Inbox2" />
+                                        {this.state.open2 ? <ExpandLess /> : <ExpandMore />}
+                                    </ListItem>
+                                    <Collapse  in={this.state.open2} timeout="auto" unmountOnExit >
+                                        <List component="div" disablePadding>
+                                            <ListItem button className={classes.nested2}>
+                                                <ListItemIcon>
+                                                    <StarBorder />
+                                                </ListItemIcon>
+                                                <ListItemText inset primary="Starred" />
+                                            </ListItem>
+                                            <ListItem button className={classes.nested2}>
+                                                <ListItemIcon>
+                                                    <StarBorder />
+                                                </ListItemIcon>
+                                                <ListItemText inset primary="Starred" />
+                                            </ListItem>
+                                        </List>
+                                    </Collapse>
+                                </List>
+                            </Collapse>
+                        </List>
+                    </Collapse>
+                    <ListItem button className={classes.nested}>
+                        <ListItemIcon>
+                            <StarBorder />
+                        </ListItemIcon>
+                        <ListItemText inset primary="Starred" />
+                    </ListItem>
+                </List>
+            </Collapse>
             </List>
         );
     }

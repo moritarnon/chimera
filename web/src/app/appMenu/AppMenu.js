@@ -10,6 +10,8 @@ export const AppMenu = ({dense = false}) => {
 
             <Divider />
 
+            <MenuLink to="/forum" primary="Fórum" />
+
             <MenuDropdown primary="Pages" secondary="All of them">
                 <MenuLink to="/page1"
                           primary="Page 1" secondary="Testing material UI List"/>

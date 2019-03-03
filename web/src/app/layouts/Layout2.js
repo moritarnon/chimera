@@ -78,7 +78,7 @@ const Layout2 = withStyles(styles)(props => {
                 </Drawer>
             </Hidden>
 
-            <Hidden only={'xs'} implementation="css">>
+            <Hidden only={'xs'} implementation="css">
                 <Drawer
                     open={true}
                     className={classes.drawer}
