@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
+import Typography from "@material-ui/core/Typography";
 
 class Home extends Component {
     render() {
         return (
-            <div className="Page">
+            <Typography variant="body1">
                 With Blackjack and beautiful trees ...
-            </div>
+            </Typography>
         );
     }
 }

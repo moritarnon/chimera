@@ -9,8 +9,10 @@ import Hidden from "@material-ui/core/Hidden";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
+import { unstable_useMediaQuery as useMediaQuery } from '@material-ui/core/useMediaQuery';
 import clsx from "clsx";
 import {Fragment} from "react";
+import {withRouter} from "react-router-dom";
 
 const styles = theme => ({
     root: {
@@ -19,6 +21,16 @@ const styles = theme => ({
     },
     appBar: {
         zIndex: theme.zIndex.drawer + 1,
+    },
+    toolbarMain: {
+        display: 'flex',
+        flexGrow: 1,  //takes up remaining width
+        alignSelf: 'stretch',
+        alignItems: 'center',
+        cursor: 'pointer',
+        [theme.breakpoints.up('sm')]: {
+            justifyContent: 'center',
+        }
     },
     drawer: {
         width: menuWidth,
@@ -50,8 +62,10 @@ const styles = theme => ({
 
 const appMenu = <AppMenu dense />;
 
-const Layout3 = withStyles(styles)(props => {
-    const {classes} = props;
+const Layout3 = withRouter(withStyles(styles, {withTheme: true})(props => {
+    const {classes, theme, history} = props;
+
+    const isMobile = useMediaQuery(theme.breakpoints.down('xs'));
 
     const [open, setOpen] = useState(false);
 
@@ -61,19 +75,24 @@ const Layout3 = withStyles(styles)(props => {
     const onClose = () => {
         setOpen(false);
     };
+    const navigateHome = () => {
+        history.push("/");
+    }
 
     return (
         <Fragment>
             <AppBar position="fixed" className={classes.appBar} color="default">
-                <Toolbar>
+                <Toolbar disableGutters>
                     <Hidden smUp implementation="css">
                         <IconButton className={classes.openMenuButton} onClick={onOpen}>
                             {<MenuIcon color="secondary"/>}
                         </IconButton>
                     </Hidden>
-                    <Typography variant="h6">
-                        Chimera
-                    </Typography>
+                    <div className={classes.toolbarMain} onClick={navigateHome}>
+                        <Typography variant="h6" align={isMobile ? 'inherit' : 'center'}>
+                            Chimera
+                        </Typography>
+                    </div>
                 </Toolbar>
             </AppBar>
 
@@ -117,5 +136,5 @@ const Layout3 = withStyles(styles)(props => {
 
         </Fragment>
     );
-});
+}));
 export default Layout3;
