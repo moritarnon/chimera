@@ -33,7 +33,6 @@ const styles = theme => ({
 
         },
         [theme.breakpoints.up('sm')]: { //not mobile
-            justifyContent: 'center',
             ...theme.mixins.gutters()
         }
     },
