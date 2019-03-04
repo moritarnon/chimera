@@ -5,7 +5,7 @@ import Page2 from "../../pages/page2/Page2";
 import Page3 from "../../pages/page3/Page3";
 import Page4 from "../../pages/page4/Page4";
 import Home from "../../pages/home/Home";
-import {Forum} from "../../pages/forum/Forum";
+import Forum from "../../pages/forum/Forum";
 
 class AppContent extends Component {
     render() {
@@ -16,7 +16,7 @@ class AppContent extends Component {
                 <Route path='/page2' component={Page2} />
                 <Route path='/page3' component={Page3} />
                 <Route path='/page4' component={Page4} />
-                <Route path='/forum' component={Forum} />
+                <Route path='/forum' render={() => <Forum />} />
             </Switch>
         );
     }
