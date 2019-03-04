@@ -26,7 +26,7 @@ https://codesandbox.io/s/github/moritarnon/chimera/tree/develop/web
 *******************************************
 DEPLOY & DELPLOY-TOOLS INFO
 
-FIREBASE
+FIREBASE - DEPRECATED
     INFO:
       prepare:
         npm install -g firebase-tools
@@ -40,7 +40,8 @@ FIREBASE
 
 OPPENNODE
     run:
-        openode deploy
+        in ./web: npm run build
+        in ./server: openode deploy
 
     LINKS:
         http://chimera.openode.io/
