@@ -32,7 +32,7 @@ const MenuContext = React.createContext({dense: false, level: 0});
 export const Menu = props => {
     return (
         <MenuContext.Provider value={{dense: props.dense, level: 0}}>
-            <List disablePadding component="nav" dense={props.dense} key={0}>
+            <List component="nav" dense={props.dense} key={0}>
                 {props.children}
             </List>
         </MenuContext.Provider>
