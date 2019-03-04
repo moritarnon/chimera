@@ -120,7 +120,8 @@ const Layout3 = withRouter(withStyles(styles/*, {withTheme: true}*/)(props => {
                         anchor="left"
                         variant="temporary"
                         open={open}
-                        onClose={onClose}>
+                        onClose={onClose}
+                        onOpen={onOpen}>
                         {appMenu}
                     </SwipeableDrawer>
                 </Hidden>
