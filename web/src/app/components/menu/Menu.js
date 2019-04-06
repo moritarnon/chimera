@@ -83,7 +83,7 @@ export const MenuDropdown = withStyles(styles)(props => {
     };
 
 
-    //TODO solve fontWeight Differently
+    //TODO solve fontWeight Differently maybe?
 
     return [
         <ListItem

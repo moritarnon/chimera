@@ -1,5 +1,5 @@
-@import "pages/Page.css";
-@import "pages/page2/oldmenu/OldMenu.css";
+@import "app/pages/Page.css";
+@import "app/pages/page2/oldmenu/OldMenu.css";
 
 html {
     height: 100%;

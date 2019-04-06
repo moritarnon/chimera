@@ -5,18 +5,7 @@ import {BrowserRouter} from 'react-router-dom'
 import Layout3 from "./layouts/Layout3";
 import dark from "./themes/dark";
 
-// Set an initial global state directly:
-//setGlobal({
-//    open: true
-//});
-
-
-//export const appHistory = createBrowserHistory();
-
 function App() {
-
-    //themes:
-    //theme={pictonBlueAtomicTangerineDonkey}
 
     return (
         <MuiThemeProvider theme={dark}>

@@ -1,0 +1,20 @@
+Struktura forum:
+
+*****************************************
+
+Forum
+- []articles
+
+Article
+- title
+- text
+- access
+
+- []subarticles
+
+System
+    createdBy
+    createdAt
+    updatedBy
+    upadtedAt
+

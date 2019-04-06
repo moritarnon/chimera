@@ -1,7 +1,7 @@
 import React from "reactn";
 import PropTypes from "prop-types";
 import Divider from "@material-ui/core/es/Divider/Divider";
-import {Menu, MenuDropdown, MenuLink} from "./Menu";
+import {Menu, MenuDropdown, MenuLink} from "../components/menu/Menu";
 
 export const AppMenu = ({dense = false}) => {
     return (
