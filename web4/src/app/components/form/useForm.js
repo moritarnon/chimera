@@ -1,7 +1,9 @@
+import {useState} from 'react';
 
-export const formHelper = ({handleSubmit, initialValues = {}}) => {
+export const useForm = ({handleSubmit, initialValues = {}}) => {
 
     let values = initialValues;
+    const [validated, setValidated] = useState(false);
 
     const onChange = (event) => {
         const input = event.target;
@@ -14,12 +16,14 @@ export const formHelper = ({handleSubmit, initialValues = {}}) => {
 
     const onSubmit = (event) => {
         event.preventDefault();
-        handleSubmit(values, event.currentTarget);
+        handleSubmit(values, event.currentTarget.checkValidity());
+        setValidated(true);
     }
 
     return {
         onChange,
         onReset,
-        onSubmit
-    }
+        onSubmit,
+        validated
+    };
 }
