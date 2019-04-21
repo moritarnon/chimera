@@ -4,9 +4,12 @@ import Button from "react-bootstrap/Button";
 
 export const HomePage = () => {
     return (
-        <ButtonToolbar>
-            <Button variant="primary">Primary</Button>
-            <Button variant="secondary">Secondary</Button>
-        </ButtonToolbar>
+        <div>
+            <h4>Home</h4>
+            <ButtonToolbar>
+                <Button variant="primary">Primary</Button>
+                <Button variant="secondary">Secondary</Button>
+            </ButtonToolbar>
+        </div>
     );
 }

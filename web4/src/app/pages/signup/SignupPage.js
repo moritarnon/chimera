@@ -11,14 +11,15 @@ export const SignupPage = () => {
             alert("Nothing works on this web ...");
     }
 
-    const {onSubmit, onReset, onChange, validated} = useForm({handleSubmit});
+    const {actions, validated} = useForm({handleSubmit});
+    const {onSubmit, onReset, onChange} = actions;
     const breakpoints = useContext(BreakpointsContext);
     const isSm = breakpoints.down('md');
 
     return (
         <SmallContent>
             <Card border="primary">
-                <Card.Header>Sign Up</Card.Header>
+                {/*<Card.Header>Sign Up</Card.Header>*/}
                 <Card.Body>
                     <Form onSubmit={onSubmit} onReset={onReset} onChange={onChange}
                           validated={validated} noValidate>
@@ -37,11 +38,11 @@ export const SignupPage = () => {
                         </Form.Group>
 
                         <ButtonToolbar className="justify-content-center">
-                            <Button variant="primary" type="submit" className="mr-md-3" block={isSm}>
-                                Signup
-                            </Button>
-                            <Button variant="secondary" type="reset" block={isSm}>
+                            <Button variant="secondary" type="reset" block={isSm} className="mr-md-2">
                                 Reset
+                            </Button>
+                            <Button variant="primary" type="submit" block={isSm}>
+                                Signup
                             </Button>
                         </ButtonToolbar>
                     </Form>

@@ -21,9 +21,11 @@ export const useForm = ({handleSubmit, initialValues = {}}) => {
     }
 
     return {
-        onChange,
-        onReset,
-        onSubmit,
+        actions: {
+            onChange,
+            onReset,
+            onSubmit
+        },
         validated
     };
 }
