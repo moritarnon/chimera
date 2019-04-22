@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import emptyAvatar from '../../../assets/round_person_black_48dp.png';
 import {commentData} from "./commentData";
-import {Button, ButtonGroup, Container} from "react-bootstrap";
+import {Button, ButtonGroup} from "react-bootstrap";
 import {BreakpointsContext} from "../../components/layout/BreakpointsProvider";
 import clsx from "clsx";
 import {SmallHeader} from "../../components/layout/SmallHeader";
@@ -24,7 +24,7 @@ export const ForumPage = () => {
     const large = breakpoints.up('md');
 
     return (
-        <Container style={large ? tempStyle.paper : null } className="h-auto pb-3 px-0">
+        <div style={large ? tempStyle.paper : null } className="h-auto pb-3">
 
             <SmallHeader titleDesc="Forum Topic" title="Donec Ipsum">
                 <ButtonGroup>
@@ -36,12 +36,11 @@ export const ForumPage = () => {
                 </ButtonGroup>
             </SmallHeader>
 
-
             <div className="px-3">
                 {commentData.map((comment, i) => <ForumComment key={i} {...comment} />)}
             </div>
 
-        </Container>
+        </div>
     );
 };
 

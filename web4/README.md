@@ -11,6 +11,8 @@
 * better user icon from awesome
 * dialog for new comment
 * forum filter
+* close collapse on outside click
+* authorname in small next to avatar
 
 * learn express login
 

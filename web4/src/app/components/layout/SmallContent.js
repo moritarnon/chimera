@@ -9,12 +9,10 @@ const tempStyle = {
 
 export const SmallContent = ({children, withPaper = false}) => {
     return (
-        <Container className="px-0">
-            <Row noGutters>
-                <Col sm={{offset: 1, span: 10}} md={{offset: 2, span: 8}} style={withPaper ? tempStyle.paper : null}>
-                    {children}
-                </Col>
-            </Row>
-        </Container>
+        <Row noGutters>
+            <Col sm={{offset: 1, span: 10}} md={{offset: 2, span: 8}} style={withPaper ? tempStyle.paper : null}>
+                {children}
+            </Col>
+        </Row>
     );
 }

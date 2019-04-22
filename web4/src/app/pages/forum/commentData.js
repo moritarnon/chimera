@@ -18,7 +18,6 @@ export const commentData = [
             {
                 author: 'Oskar Špatný',
                 text: 'Curabitur sagittis hendrerit ante.\n\nCurabitur sagittis hendrerit ante! Nascetur ridiculus mus!',
-                avatar: avatar,
                 time: '13.11.2101',
             },
             {
@@ -29,8 +28,7 @@ export const commentData = [
                     {
                         author: 'Oskar Špatný',
                         text: 'Answering myself.',
-                        time: '14.11.2101',
-                        avatar: avatar
+                        time: '14.11.2101'
                     },
                 ]
             },

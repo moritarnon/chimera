@@ -42,14 +42,14 @@ export const Layout = withRouter(({location}) => {
             </Navbar>
 
             {/*style={tempStyle.paper}*/}
-            <div className="justify-content-center h-auto pb-3 pt-3">
+            <Container className="justify-content-center h-auto py-3 px-0">
                 <Switch>
                     <Route exact path='/' component={HomePage}/>
                     <Route exact path='/forum' component={ForumPage}/>
                     <Route exact path='/login' component={LoginPage}/>
                     <Route exact path='/signup' component={SignupPage}/>
                 </Switch>
-            </div>
+            </Container>
         </React.Fragment>
     );
 });
