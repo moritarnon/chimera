@@ -14,12 +14,12 @@ export const SignupPage = () => {
     const {actions, validated} = useForm({handleSubmit});
     const {onSubmit, onReset, onChange} = actions;
     const breakpoints = useContext(BreakpointsContext);
-    const isSm = breakpoints.down('md');
+    const isSm = breakpoints.down('sm');
 
     return (
         <SmallContent>
             <Card border="primary">
-                {/*<Card.Header>Sign Up</Card.Header>*/}
+                <Card.Header>Sign Up</Card.Header>
                 <Card.Body>
                     <Form onSubmit={onSubmit} onReset={onReset} onChange={onChange}
                           validated={validated} noValidate>

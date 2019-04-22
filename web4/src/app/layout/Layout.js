@@ -7,10 +7,19 @@ import {LOGGED_IN, NOT_LOGGED_IN, UserContext} from "../user/UserProvider";
 import {LoginPage} from "../pages/login/LoginPage";
 import {SignupPage} from "../pages/signup/SignupPage";
 
+const tempStyle = {
+    paper: {
+        boxShadow: '0px 1px 3px 0px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 2px 1px -1px rgba(0,0,0,0.12)'
+    },
+    mw: {
+        minWidth: '200px'
+    }
+}
+
 export const Layout = withRouter(({location}) => {
 
     return (
-        <div>
+        <React.Fragment>
             <Navbar bg="dark" variant="dark" expand="md">
 
                 <Navbar.Brand as={Link} to="/">Chimera</Navbar.Brand>
@@ -32,15 +41,16 @@ export const Layout = withRouter(({location}) => {
 
             </Navbar>
 
-            <Container className="pt-3 justify-content-center">
+            {/*style={tempStyle.paper}*/}
+            <div className="justify-content-center h-auto pb-3 pt-3">
                 <Switch>
                     <Route exact path='/' component={HomePage}/>
                     <Route exact path='/forum' component={ForumPage}/>
                     <Route exact path='/login' component={LoginPage}/>
                     <Route exact path='/signup' component={SignupPage}/>
                 </Switch>
-            </Container>
-        </div>
+            </div>
+        </React.Fragment>
     );
 });
 

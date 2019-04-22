@@ -30,7 +30,7 @@ const BreakpointsProviderInner = withBreakpoints(({breakpoints, currentBreakpoin
     }
 
     const down = (brName) => {
-        return current < breakpoints[brName];
+        return current <= breakpoints[brName];
     }
 
     const eq = (brName) => {

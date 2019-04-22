@@ -1,2 +1,11 @@
 @import '../../node_modules/bootstrap/scss/bootstrap';
 @import './themes/theme1';
+
+
+html,
+body,
+div#root,
+div.App
+{
+  height: 100%;
+}

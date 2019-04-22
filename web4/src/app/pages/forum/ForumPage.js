@@ -1,49 +1,86 @@
-import React from 'react';
-import avatar from '../../../assets/BHAAL03S_sq.png';
+import React, {useContext} from 'react';
+import emptyAvatar from '../../../assets/round_person_black_48dp.png';
 import {commentData} from "./commentData";
+import {Button, ButtonGroup, Container} from "react-bootstrap";
+import {BreakpointsContext} from "../../components/layout/BreakpointsProvider";
 import clsx from "clsx";
-import {Card} from "react-bootstrap";
+import {SmallHeader} from "../../components/layout/SmallHeader";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faPlus} from '@fortawesome/free-solid-svg-icons'
+
+const tempStyle = {
+    paper: {
+        boxShadow: '0px 1px 3px 0px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 2px 1px -1px rgba(0,0,0,0.12)'
+    },
+    bar: {
+        marginLeft: '-15px',
+        marginRight: '-15px'
+    }
+}
 
 export const ForumPage = () => {
 
+    const breakpoints = useContext(BreakpointsContext);
+    const large = breakpoints.up('md');
+
     return (
-        <React.Fragment>
+        <Container style={large ? tempStyle.paper : null } className="h-auto pb-3 px-0">
 
-                <Card.Header>Forum</Card.Header>
-                <div>
+            <SmallHeader titleDesc="Forum Topic" title="Donec Ipsum">
+                <ButtonGroup>
+                    {
+                        large ?
+                            <Button>Nový příspěvek</Button> :
+                            <Button><FontAwesomeIcon icon={faPlus} /></Button>
+                    }
+                </ButtonGroup>
+            </SmallHeader>
 
-                    <h5 className="mt-3">Donec ipsum.</h5>
 
-                    {commentData.map((comment, i) => <ForumComment key={i} {...comment} />)}
+            <div className="px-3">
+                {commentData.map((comment, i) => <ForumComment key={i} {...comment} />)}
+            </div>
 
-                </div>
-
-        </React.Fragment>
+        </Container>
     );
 };
 
-const ForumComment = ({author, text, time, children = [], isChild = false}) => {
+const ForumComment = ({author, text, time, avatar, children = [], isChild = false}) => {
+
+    const breakpoints = useContext(BreakpointsContext);
+    const isSm = breakpoints.down('sm');
+
     return (
-        <div className={clsx('d-flex p-1  mt-3', isChild && 'border-left border-light')}>
+        <div className={clsx("d-flex mt-3", isSm && "flex-column")}>
+
+            {/*image*/}
             <div className="pt-1">
-                <img width="55" height="55" src={avatar} alt="Arnold Smrtka avatar"
+                <img width={isSm ? 45 : 55} height={isSm ? 45 : 55} src={avatar || emptyAvatar} alt="Avatar"
                      className="rounded-circle"/>
             </div>
-            <div style={{whiteSpace: 'pre-wrap'}} className="pl-3 w-100">
-                <h6 style={{whiteSpace: 'nowrap'}} className="text-nowrap mb-2">
+
+            {/*text with title*/}
+            <div className="pl-md-3 w-100">
+
+                <h6 className="mb-2">
                     {author}
                     <small className="pl-2">{time}</small>
                 </h6>
-                {text}
 
+                <div style={{whiteSpace: 'pre-wrap'}} className="w-100">
+                    {text}
+                </div>
+
+                {/*children*/}
                 <div>
                     {children.map(
                         (comment, i) => <ForumComment key={i} {...comment} isChild/>
                     )}
                 </div>
+
             </div>
+
+
         </div>
-
-
     );
 }
