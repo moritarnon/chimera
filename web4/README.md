@@ -6,6 +6,12 @@
 
 
 ### TODO:
+
+* compoentize forum
+* better user icon from awesome
+* dialog for new comment
+* forum filter
+
 * learn express login
 
 * create routes only for authenticated
@@ -15,5 +21,4 @@
 
 * make simple mock database in memory for express (just simple objects)
 
-* npm install --save react-breakpoints !
-* or yarn add bs-breakpoints
+
