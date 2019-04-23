@@ -1,5 +1,8 @@
 import React, {useContext} from 'react';
-import {Button, ButtonToolbar, Card, Form} from "react-bootstrap";
+import Button from "react-bootstrap/Button";
+import ButtonToolbar from "react-bootstrap/ButtonToolbar";
+import Form from "react-bootstrap/Form";
+import Card from "react-bootstrap/Card";
 import {SmallContent} from "../../components/layout/SmallContent";
 import {BreakpointsContext} from "../../components/layout/BreakpointsProvider";
 import {useForm} from "../../components/form/useForm";

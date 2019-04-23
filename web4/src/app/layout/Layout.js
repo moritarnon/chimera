@@ -1,48 +1,57 @@
-import React, {useContext} from 'react';
-import {Container, Nav, Navbar} from "react-bootstrap";
+import React, {useContext, useState} from 'react';
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
 import {Link, Route, Switch, withRouter} from 'react-router-dom'
 import {HomePage} from "../pages/home/HomePage";
 import {ForumPage} from "../pages/forum/ForumPage";
 import {LOGGED_IN, NOT_LOGGED_IN, UserContext} from "../user/UserProvider";
 import {LoginPage} from "../pages/login/LoginPage";
 import {SignupPage} from "../pages/signup/SignupPage";
-
-const tempStyle = {
-    paper: {
-        boxShadow: '0px 1px 3px 0px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 2px 1px -1px rgba(0,0,0,0.12)'
-    },
-    mw: {
-        minWidth: '200px'
-    }
-}
+import OutsideClickHandler from 'react-outside-click-handler';
 
 export const Layout = withRouter(({location}) => {
 
+    const [expanded, setExpanded] = useState(false);
+
+    const onNavbarOutsideClick = () => {
+        setExpanded(false);
+    }
+
+    const onNavbarToggle = (expanded) => {
+        setExpanded(expanded);
+    }
+
     return (
         <React.Fragment>
-            <Navbar bg="dark" variant="dark" expand="md">
 
-                <Navbar.Brand as={Link} to="/">Chimera</Navbar.Brand>
+            <OutsideClickHandler  onOutsideClick={onNavbarOutsideClick}>
+                <Navbar bg="dark" variant="dark" expand="md"
+                        onToggle={onNavbarToggle}
+                        expanded={expanded}>
 
-                <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+                    <Navbar.Brand as={Link} to="/">Chimera</Navbar.Brand>
 
-                <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between">
-                    <Nav activeKey={location.pathname}>
-                        <MenuLink to="/">Home</MenuLink>
-                        {/*TODO remove notLoggedIn*/}
-                        <MenuLink to="/forum" notLoggedIn>Forum</MenuLink>
-                    </Nav>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav"/>
 
-                    <Nav activeKey={location.pathname}>
-                        <MenuLink to="/login" notLoggedIn>Login</MenuLink>
-                        <MenuLink to="/signup" notLoggedIn>Sign Up</MenuLink>
-                    </Nav>
-                </Navbar.Collapse>
+                    <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between">
+                        <Nav activeKey={location.pathname}>
+                            <MenuLink to="/">Home</MenuLink>
+                            {/*TODO remove notLoggedIn for forum when logging works*/}
+                            <MenuLink to="/forum" notLoggedIn>Forum</MenuLink>
+                        </Nav>
 
-            </Navbar>
+                        <Nav activeKey={location.pathname}>
+                            <MenuLink to="/login" notLoggedIn>Login</MenuLink>
+                            <MenuLink to="/signup" notLoggedIn>Sign Up</MenuLink>
+                        </Nav>
+                    </Navbar.Collapse>
 
-            {/*style={tempStyle.paper}*/}
-            <Container className="justify-content-center h-auto py-3 px-0">
+                </Navbar>
+            </OutsideClickHandler>
+
+
+            <Container className="justify-content-center h-auto pb-3 px-0 pt-md-3">
                 <Switch>
                     <Route exact path='/' component={HomePage}/>
                     <Route exact path='/forum' component={ForumPage}/>
