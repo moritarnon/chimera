@@ -1,19 +1,18 @@
 import React, {useContext} from 'react';
 import emptyAvatar from '../../../assets/round_person_black_48dp.png';
 import {commentData} from "./commentData";
-import Button from "react-bootstrap/Button";
-import ButtonGroup from "react-bootstrap/ButtonGroup";
 import {BreakpointsContext} from "../../components/layout/BreakpointsProvider";
 import clsx from "clsx";
-import {SmallHeader} from "../../components/layout/SmallHeader";
+import {LargeContent} from "../../layout/LargeContent";
+import {Button, ButtonGroup} from "react-bootstrap";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'; //TODO use library
 import {faPlus} from '@fortawesome/free-solid-svg-icons';
 import {Tooltip} from "../../components/tooltip/Tooltip";
+import {Header} from "../../layout/Header";
 
 export const ForumPage = () => {
 
     const breakpoints = useContext(BreakpointsContext);
-    const smUp = breakpoints.up('sm');
     const mdUp = breakpoints.up('md');
 
     const onNewComment = () => {
@@ -21,9 +20,9 @@ export const ForumPage = () => {
     }
 
     return (
-        <div className={clsx("h-auto pb-3", smUp && "paper")}>
+        <React.Fragment>
 
-            <SmallHeader titleDesc="Forum Topic" title="Donec Ipsum">
+            <Header noMargin title="Donec ipsum">
                 <ButtonGroup>
                     {
                         mdUp ?
@@ -38,13 +37,15 @@ export const ForumPage = () => {
                             </Tooltip>
                     }
                 </ButtonGroup>
-            </SmallHeader>
+            </Header>
 
-            <div className="px-3">
-                {commentData.map((comment, i) => <ForumComment key={i} {...comment} />)}
-            </div>
+            <LargeContent>
+                <div>
+                    {commentData.map((comment, i) => <ForumComment key={i} {...comment} />)}
+                </div>
+            </LargeContent>
 
-        </div>
+        </React.Fragment>
     );
 };
 

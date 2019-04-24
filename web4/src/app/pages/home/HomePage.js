@@ -1,10 +1,11 @@
 import React from 'react';
+import {Container} from "react-bootstrap";
 
 export const HomePage = () => {
     return (
-        <div className="px-3">
+        <Container>
             <h4>Home</h4>
             <h5>... sweet home</h5>
-        </div>
+        </Container>
     );
 }

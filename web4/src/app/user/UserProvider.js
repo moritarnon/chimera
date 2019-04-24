@@ -38,8 +38,10 @@ export const UserProvider = ({children}) => {
         <UserContext.Provider value={{
             user,
             resolveAuth,
-            requestLogin,
-            requestSignup
+            actions: {
+                requestLogin,
+                requestSignup
+            }
         }}>
             {children}
         </UserContext.Provider>
