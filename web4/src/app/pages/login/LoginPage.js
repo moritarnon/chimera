@@ -5,6 +5,7 @@ import {BreakpointsContext} from "../../components/layout/BreakpointsProvider";
 import {useForm} from "../../components/form/useForm";
 import {SmallContent} from "../../layout/SmallContent";
 import {Header} from "../../layout/Header";
+import {LayoutContainer} from "../../layout/LayoutContainer";
 
 export const LoginPage = () => {
 
@@ -20,7 +21,7 @@ export const LoginPage = () => {
     const smDown = breakpoints.down('sm');
 
     return (
-        <React.Fragment>
+        <LayoutContainer>
             <Header title="Please log in" />
 
             <SmallContent>
@@ -47,12 +48,12 @@ export const LoginPage = () => {
                                 Login
                             </Button>
                             <Button variant="outline-secondary" type="reset">
-                                Reset
+                                Clear
                             </Button>
                         </ButtonGroup>
                     </ButtonToolbar>
                 </Form>
             </SmallContent>
-        </React.Fragment>
+        </LayoutContainer>
     );
 };

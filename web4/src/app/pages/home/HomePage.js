@@ -1,11 +1,12 @@
 import React from 'react';
-import {Container} from "react-bootstrap";
+import {LayoutContainer} from "../../layout/LayoutContainer";
+import {Header} from "../../layout/Header";
 
 export const HomePage = () => {
     return (
-        <Container>
-            <h4>Home</h4>
+        <LayoutContainer>
+            <Header title="Home" />
             <h5>... sweet home</h5>
-        </Container>
+        </LayoutContainer>
     );
 }

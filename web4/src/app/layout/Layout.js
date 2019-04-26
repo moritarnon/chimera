@@ -1,5 +1,5 @@
 import React, {useContext, useState} from 'react';
-import {Container, Nav, Navbar, NavDropdown} from "react-bootstrap";
+import {Nav, Navbar, NavDropdown} from "react-bootstrap";
 import {Link, Route, Switch, withRouter} from 'react-router-dom'
 import {HomePage} from "../pages/home/HomePage";
 import {TopicsPage} from "../pages/topics/TopicsPage";
@@ -50,14 +50,12 @@ export const Layout = withRouter(({location}) => {
 
             </Navbar>
 
-            <Container className="py-3 py-sm-2">
-                <Switch>
-                    <Route exact path='/' component={HomePage}/>
-                    <Route exact path='/topics' component={TopicsPage}/>
-                    <Route path='/forum/:id' component={ForumPage}/>
-                    <Route path='/login' component={LoginPage}/>
-                </Switch>
-            </Container>
+            <Switch>
+                <Route exact path='/' component={HomePage}/>
+                <Route exact path='/topics' component={TopicsPage}/>
+                <Route path='/forum/:id' component={ForumPage}/>
+                <Route path='/login' component={LoginPage}/>
+            </Switch>
         </React.Fragment>
     );
 });

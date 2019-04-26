@@ -1,18 +1,18 @@
 import React, {useContext} from 'react';
-import clsx from 'clsx';
 import {commentData} from "./commentData";
 import {BreakpointsContext} from "../../components/layout/BreakpointsProvider";
 import {ForumComment} from "./ForumComment";
-import {Button, ButtonGroup, ButtonToolbar, Row} from "react-bootstrap";
+import {Button, ButtonGroup, Row} from "react-bootstrap";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'; //TODO use library
 import {faPlus} from '@fortawesome/free-solid-svg-icons';
 import {Tooltip} from "../../components/tooltip/Tooltip";
 import {Header} from "../../layout/Header";
+import {LayoutContainer} from "../../layout/LayoutContainer";
 
 export const Forum = ({forumId}) => {
 
     const breakpoints = useContext(BreakpointsContext);
-    const smUp = breakpoints.up('sm');
+    const xs = breakpoints.eq('xs');
     const mdUp = breakpoints.up('md');
 
     const onNewComment = () => {
@@ -20,12 +20,12 @@ export const Forum = ({forumId}) => {
     }
 
     return (
-        <React.Fragment>
+        <LayoutContainer>
 
-            <Header noMargin title="My Forum" between>
-                <ButtonGroup>
+            <Header noMargin title="My Forum">
+                <ButtonGroup vertical={xs} size={xs && 'sm'}>
                     {
-                        mdUp ?
+                        mdUp || true ?
                             <Button onClick={onNewComment}>
                                 Nový příspěvek
                                 <span className="pl-2"><FontAwesomeIcon icon={faPlus} /></span>
@@ -40,31 +40,9 @@ export const Forum = ({forumId}) => {
             </Header>
 
             <Row noGutters>
-
-               {/* <ButtonToolbar className={clsx("w-100", smUp ? "justify-content-end" : "justify-content-center")}>
-                    <ButtonGroup>
-                        {
-                            smUp || true ?
-                                <Button onClick={onNewComment}>
-                                    <span className="pr-2"><FontAwesomeIcon icon={faPlus}/></span>
-                                    Nový příspěvek
-                                </Button> :
-                                <Tooltip text="Nový příspěvek">
-                                    <Button onClick={onNewComment}>
-                                        <FontAwesomeIcon icon={faPlus}/>
-                                    </Button>
-                                </Tooltip>
-                        }
-                    </ButtonGroup>
-                </ButtonToolbar>*/}
+                {commentData.map((comment, i) => <ForumComment key={i} {...comment} />)}
             </Row>
 
-            <Row noGutters>
-                <div>
-                    {commentData.map((comment, i) => <ForumComment key={i} {...comment} />)}
-                </div>
-            </Row>
-        </React.Fragment>
+        </LayoutContainer>
     );
-
 };
