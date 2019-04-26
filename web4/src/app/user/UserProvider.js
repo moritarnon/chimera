@@ -13,7 +13,7 @@ export const UserContext = React.createContext();
 
 export const UserProvider = ({children}) => {
 
-    const [user] = useState(defaultUser);
+    const [user, setUser] = useState(defaultUser);
 
     const resolveAuth = (auth) => {
         return auth === PUBLIC ? true
@@ -22,13 +22,17 @@ export const UserProvider = ({children}) => {
             : auth.some(role => user.roles.includes(role))
     }
 
-    const requestLogin = (values) => {
+    const requestLogin = async (values) => {
         //TODO server call
         //also validate shit on server, yo
         console.log(values);
+
+        setUser({name: "Foo"});
+
+        //...await and then set user
     }
 
-    const requestSignup = (values) => {
+    const requestSignup = async (values) => {
         //TODO server call
         //also validate shit on server, yo
         console.log(values);

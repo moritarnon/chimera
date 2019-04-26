@@ -1,9 +1,10 @@
 import React from 'react';
-import {Row, Col} from "react-bootstrap";
+import {Col, Row} from "react-bootstrap";
+//import Row from 'react-bootstrap/Row'
 
 export const LargeContent = ({children}) => {
     return (
-        <Row className="justify-content-center">
+        <Row className="justify-content-center" noGutters>
             <Col>
                 {children}
             </Col>

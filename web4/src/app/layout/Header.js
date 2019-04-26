@@ -1,21 +1,18 @@
 import React from 'react';
 import clsx from 'clsx';
+import {Row} from "react-bootstrap";
 
-export const Header = ({children, title, noMargin = false}) => {
+export const Header = ({children, title, noMargin = false, between = false}) => {
+
     return (
-        <div className={clsx("w-100 d-flex justify-content-between border-bottom py-2 px-1", !noMargin && "mb-3")}>
+        <Row noGutters className={
+            clsx(
+                "w-100 py-2 px-1",
+                !noMargin && "mb-3",
+                between ? "justify-content-between" : "justify-content-center"
+            )}>
             <h4 className="mb-0 text-muted">{title}</h4>
             {children}
-        </div>
+        </Row>
     );
 }
-
-
-//{/*<Container fluid className="px-0 pb-0">*/}
-//{/*<Row>*/}
-//{/*<Col md={{offset: 2, span: 8}} className={clsx(*/}
-//{/*"mw d-flex justify-content-between align-items-end border-bottom py-1 py-md-3 px-1", !noMargin && "mb-3")}>*/}
-//{/*{children}*/}
-//{/*</Col>*/}
-//{/*</Row>*/}
-//{/*</Container>*/}

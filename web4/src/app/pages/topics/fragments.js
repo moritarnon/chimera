@@ -1,4 +1,4 @@
-import {commentData} from "./commentData";
+import {commentData} from "../forum/commentData";
 
 
 const fragments = () => {

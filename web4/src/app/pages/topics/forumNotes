@@ -1,0 +1,8 @@
+TopicsPage
+	Topics
+		TopicsProvider
+
+ForumPage (forumId)
+	Forum
+		ForumComment
+		ForumProvider
