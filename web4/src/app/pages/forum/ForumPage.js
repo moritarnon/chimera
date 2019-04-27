@@ -5,7 +5,7 @@ export const ForumPage = ({match}) => {
 
     return (
         <React.Fragment>
-            <Forum />
+            <Forum name={match.params.name} />
         </React.Fragment>
     );
 };

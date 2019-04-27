@@ -6,6 +6,7 @@ import {TopicsPage} from "../pages/topics/TopicsPage";
 import {LOGGED_IN, NOT_LOGGED_IN, UserContext} from "../user/UserProvider";
 import {LoginPage} from "../pages/login/LoginPage";
 import {ForumPage} from "../pages/forum/ForumPage";
+import {LayoutContainer} from "./LayoutContainer";
 
 export const Layout = withRouter(({location}) => {
 
@@ -37,10 +38,11 @@ export const Layout = withRouter(({location}) => {
                         <MenuLink to="/">Home</MenuLink>
 
                         {/*TODO remove notLoggedIn for forum pages when logging works*/}
-                        <MenuDropdown title="Forum" id="forum-nav-dropdown" notLoggedIn>
-                            <MenuLink dropdown to="/topics" notLoggedIn>Forum</MenuLink>
-                            <MenuLink dropdown to="/forum/My Forum" notLoggedIn>My Forum</MenuLink>
-                        </MenuDropdown>
+                        <MenuLink to="/forum" notLoggedIn>Forum</MenuLink>
+                        {/*<MenuDropdown title="Forum" id="forum-nav-dropdown" notLoggedIn>*/}
+                            {/*<MenuLink dropdown to="/topics" notLoggedIn>Forum</MenuLink>*/}
+                            {/*<MenuLink dropdown to="/forum/My Forum" notLoggedIn>My Forum</MenuLink>*/}
+                        {/*</MenuDropdown>*/}
                     </Nav>
 
                     <Nav activeKey={location.pathname}>
@@ -50,35 +52,39 @@ export const Layout = withRouter(({location}) => {
 
             </Navbar>
 
-            <Switch>
-                <Route exact path='/' component={HomePage}/>
-                <Route exact path='/topics' component={TopicsPage}/>
-                <Route path='/forum/:id' component={ForumPage}/>
-                <Route path='/login' component={LoginPage}/>
-            </Switch>
+            <LayoutContainer>
+                <Switch>
+                    <Route exact path='/' component={HomePage}/>
+                    <Route exact path='/forum' component={TopicsPage}/>
+                    <Route path='/forum/:name' component={ForumPage}/>
+                    <Route path='/login' component={LoginPage}/>
+                </Switch>
+            </LayoutContainer>
         </React.Fragment>
     );
 });
 
-const MenuDropdown = withRouter(({children, title, id, location, auth = LOGGED_IN, notLoggedIn = false}) => {
 
-    const userContext = useContext(UserContext);
-
-    if (notLoggedIn)
-        auth = NOT_LOGGED_IN;
-
-    const isActive = children.some(ch => {
-        return ch.props.to === location.pathname;
-    });
-
-    return (
-        userContext.resolveAuth(auth) ?
-            <NavDropdown title={title} id={id} active={isActive}>
-                {children}
-            </NavDropdown> :
-            null
-    );
-});
+//uncomment when dropdown in menu is needed
+//const MenuDropdown = withRouter(({children, title, id, location, auth = LOGGED_IN, notLoggedIn = false}) => {
+//
+//    const userContext = useContext(UserContext);
+//
+//    if (notLoggedIn)
+//        auth = NOT_LOGGED_IN;
+//
+//    const isActive = children.some(ch => {
+//        return ch.props.to === location.pathname;
+//    });
+//
+//    return (
+//        userContext.resolveAuth(auth) ?
+//            <NavDropdown title={title} id={id} active={isActive}>
+//                {children}
+//            </NavDropdown> :
+//            null
+//    );
+//});
 
 const MenuLink = ({to, eventKey, children, auth = LOGGED_IN, dropdown = false, notLoggedIn = false}) => {
 
@@ -93,7 +99,7 @@ const MenuLink = ({to, eventKey, children, auth = LOGGED_IN, dropdown = false, n
         userContext.resolveAuth(auth) ?
             <MainComponent as={Link} to={to} eventKey={to}>
                 {children}
-                </MainComponent> :
+            </MainComponent> :
             null
     );
 }

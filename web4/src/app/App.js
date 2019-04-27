@@ -4,8 +4,8 @@ import {Layout} from "./layout/Layout";
 import {UserProvider} from "./user/UserProvider";
 import {BreakpointsProvider} from "./components/layout/BreakpointsProvider";
 
+import "./icons/initIconLibrary";
 import './App.scss';
-
 
 export const App = () => {
     return (
