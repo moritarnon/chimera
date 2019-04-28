@@ -6,9 +6,7 @@ export const SmallContent = ({children}) => {
     return (
         <Row className="justify-content-center">
             <Col sm="9" lg="8">
-                <div>
-                    {children}
-                </div>
+                {children}
             </Col>
         </Row>
     );

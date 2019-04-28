@@ -1,24 +1,27 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import {commentData} from "./commentData";
 import {BreakpointsContext} from "../../components/layout/BreakpointsProvider";
 import {ForumComment} from "./ForumComment";
-import {Button, ButtonGroup, Row} from "react-bootstrap";
+import {Button, ButtonGroup, Collapse, Row} from "react-bootstrap";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {Header} from "../../layout/Header";
+import {NewCommentForm} from "./NewCommentForm";
 
 export const Forum = ({name}) => {
+
+    const [open, setOpen] = useState(false);
 
     const breakpoints = useContext(BreakpointsContext);
     const xs = breakpoints.eq('xs');
 
     const onNewComment = () => {
-        alert("No, nothing works...");
+        setOpen(!open);
     }
 
     return (
         <React.Fragment>
 
-            <Header noMargin title={name}>
+            <Header title={name}>
                 <ButtonGroup vertical={xs} size={xs && 'sm'}>
                     <Button onClick={onNewComment}>
                         <span className="pr-2"><FontAwesomeIcon icon="plus" /></span>
@@ -26,6 +29,13 @@ export const Forum = ({name}) => {
                     </Button>
                 </ButtonGroup>
             </Header>
+
+
+            <Collapse in={open}>
+                <div>
+                    <NewCommentForm />
+                </div>
+            </Collapse>
 
             <Row noGutters>
                 {commentData.map((comment, i) => <ForumComment key={i} {...comment} />)}
