@@ -3,14 +3,14 @@ import clsx from "clsx";
 import {ButtonGroup, ButtonToolbar} from "react-bootstrap";
 import {BreakpointsContext} from "../layout/BreakpointsProvider";
 
-export const FormButtons = ({children}) => {
+export const FormButtons = ({children, vertical = false}) => {
 
     const breakpoints = useContext(BreakpointsContext);
     const smDown = breakpoints.down('sm');
 
     return (
         <ButtonToolbar className="justify-content-end">
-            <ButtonGroup className={clsx(smDown && "w-100")}>
+            <ButtonGroup className={clsx(smDown && "w-100")} vertical={vertical}>
                 {children}
             </ButtonGroup>
         </ButtonToolbar>

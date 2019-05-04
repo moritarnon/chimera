@@ -22,10 +22,10 @@ export const NewCommentForm = () => {
 
                 <FormButtons>
                     <Button type="submit">
-                        Odeslat
+                        Vložit
                     </Button>
                     <Button variant="outline-secondary">
-                        Cancel
+                        Zrušit
                     </Button>
                 </FormButtons>
 
