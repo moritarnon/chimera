@@ -12,11 +12,11 @@ export const NewCommentModal = ({handleSubmit, open, setOpen, title}) => {
     return (
         <Modal show={open} onHide={onHide} size="lg">
 
-            <Modal.Header closeButton>
+            <Modal.Header closeButton className="border-bottom-0">
                 <Modal.Title className="text-muted">{title}</Modal.Title>
             </Modal.Header>
 
-            <Modal.Body>
+            <Modal.Body className="py-0">
 
                 <ManagedForm id="newCommentForm" handleSubmit={handleSubmit}>
                     <Form.Control name="text" as="textarea" rows="5" required />
@@ -24,7 +24,7 @@ export const NewCommentModal = ({handleSubmit, open, setOpen, title}) => {
 
             </Modal.Body>
 
-            <Modal.Footer>
+            <Modal.Footer className="border-top-0">
                 <FormButtons>
                     <Button type="submit" form="newCommentForm">
                         Vložit

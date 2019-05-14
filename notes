@@ -41,7 +41,9 @@ FIREBASE - DEPRECATED
 OPPENNODE
     run:
         in ./web: npm run build
-        in ./server: openode deploy
+        in ./server:
+            openode sync //uploads new files
+            openode reload //restarts applciation on server
 
     LINKS:
         http://chimera.openode.io/

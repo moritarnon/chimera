@@ -10,17 +10,18 @@ import {NewCommentModal} from "./NewCommentModal";
 export const Forum = ({name}) => {
 
     const [open, setOpen] = useState(false);
-    const [answering, setAnswering] = useState(false);
+    const [parentComment, setParentComment] = useState(false);
 
     const breakpoints = useContext(BreakpointsContext);
     const xs = breakpoints.eq('xs');
 
     const onNewComment = () => {
+        setParentComment(null);
         setOpen(true);
     }
 
     const onRequestAnswer = (comment) => {
-        setAnswering(comment);
+        setParentComment(comment);
         setOpen(true);
     }
 
@@ -28,8 +29,8 @@ export const Forum = ({name}) => {
         <React.Fragment>
 
             <NewCommentModal handleSubmit={(vals) => {console.log(vals)}} open={open} setOpen={setOpen}
-                             comment={answering}
-                             title="Nový příspěvek" />
+                             parentComment={parentComment}
+                             title={parentComment ? 'Odpověď': 'Nový příspěvek'} />
 
             <Header title={name}>
                 <ButtonGroup vertical={xs} size={xs && 'sm'}>

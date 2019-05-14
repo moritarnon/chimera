@@ -1,0 +1,40 @@
+mongodb documentation:
+http://mongodb.github.io/node-mongodb-native/3.2/api/Collection.html#insertOne
+
+
+https://mongoosejs.com/docs/
+
+
+openode sync //uploads new files
+openode reload //restarts applciation on server
+
+
+https://github.com/openode-io //examples
+//TODO https://github.com/openode-io/openode-hello-world/blob/master/server.js
+
+
+TODO:
+register and login - secured
+openode https
+
+npm install bcrypt
+https://github.com/kelektiv/node.bcrypt.js
+
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+const myPlaintextPassword = 's0/\/\P4$$w0rD';
+const someOtherPlaintextPassword = 'not_bacon';
+
+bcrypt.hash(myPlaintextPassword, saltRounds).then(function(hash) {
+    // Store hash in your password DB.
+});
+
+// Load hash from your password DB.
+bcrypt.compare(myPlaintextPassword, hash).then(function(res) {
+    // res == true
+});
+bcrypt.compare(someOtherPlaintextPassword, hash).then(function(res) {
+    // res == false
+});
+
+...TODO static salt on client, than hash on server, 

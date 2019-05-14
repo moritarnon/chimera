@@ -5,6 +5,7 @@ export const NOT_LOGGED_IN = "NOT_LOGGED_IN";
 export const LOGGED_IN = "LOGGED_IN";
 
 const defaultUser = {
+    name: '',
     roles: [],
     loggedIn: false
 };
