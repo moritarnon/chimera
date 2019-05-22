@@ -37,4 +37,13 @@ bcrypt.compare(someOtherPlaintextPassword, hash).then(function(res) {
     // res == false
 });
 
-...TODO static salt on client, than hash on server, 
+...TODO static salt on client, than hash on server,
+
+******
+
+https://medium.freecodecamp.org/securing-node-js-restful-apis-with-json-web-tokens-9f811a92bb52
+
+npm install jsonwebtoken --save
+var jwt = require('jsonwebtoken');
+
+??? roles into jwt token or ask for user every time?
